@@ -13,7 +13,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django.conf.global_settings import EMAIL_HOST
+
 from . import key
+from .key import email_password
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -124,3 +127,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'monkaS123123@gmail.com'
+EMAIL_HOST_PASSWORD = email_password
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
