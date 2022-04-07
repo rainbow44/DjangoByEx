@@ -8,7 +8,7 @@ from django.utils import timezone
 
 class PublishedManager(models.Manager):  # creating a custom model manager to retrieve all published posts
     def get_queryset(self):
-        return super(PublishedManager, self).get_queryset().filter(status='draft')
+        return super(PublishedManager, self).get_queryset().filter(status='published')
 
 
 class Post(models.Model):
