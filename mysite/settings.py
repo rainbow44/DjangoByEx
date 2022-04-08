@@ -16,7 +16,7 @@ from pathlib import Path
 from django.conf.global_settings import EMAIL_HOST
 
 from . import key
-from .key import email_password
+from .key import email_password, db_password
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -45,8 +45,8 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'taggit',
     # 'django.contrib.sites',
-    'django.contrib.sitemaps'
-
+    'django.contrib.sitemaps',
+    'django.contrib.postgres',
 
 ]
 
@@ -86,8 +86,10 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'blog',
+        'USER': 'blog',
+        'PASSWORD': db_password,
     }
 }
 
